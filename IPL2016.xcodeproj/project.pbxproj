@@ -13,6 +13,10 @@
 		0A624C731D6AB08800B16FD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A624C711D6AB08800B16FD5 /* LaunchScreen.storyboard */; };
 		0A624C7C1D6AB10300B16FD5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A624C7B1D6AB10300B16FD5 /* Model.swift */; };
 		0A624C801D6AB19700B16FD5 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A624C7F1D6AB19700B16FD5 /* Controller.swift */; };
+		0A9CD0191D6D87770035E410 /* TeamsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CD0181D6D87770035E410 /* TeamsInfoViewController.swift */; };
+		0AC8F97B1D6ED1EB002B5CDE /* PlayerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8F97A1D6ED1EB002B5CDE /* PlayerInfoViewController.swift */; };
+		0AD33D521D6DBE69000C281A /* PlayersNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD33D511D6DBE69000C281A /* PlayersNameViewController.swift */; };
+		0AD33D541D6DC542000C281A /* CustomCellPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD33D531D6DC542000C281A /* CustomCellPlayer.swift */; };
 		0AE92D371D6AC57A00D5F93A /* TeamsNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE92D361D6AC57A00D5F93A /* TeamsNameViewController.swift */; };
 		0AE92D3B1D6AD8C400D5F93A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE92D3A1D6AD8C400D5F93A /* CustomCell.swift */; };
 		0AE92D3D1D6AE35800D5F93A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AE92D3C1D6AE35800D5F93A /* GoogleService-Info.plist */; };
@@ -28,6 +32,10 @@
 		0A624C741D6AB08800B16FD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A624C7B1D6AB10300B16FD5 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0A624C7F1D6AB19700B16FD5 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		0A9CD0181D6D87770035E410 /* TeamsInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsInfoViewController.swift; sourceTree = "<group>"; };
+		0AC8F97A1D6ED1EB002B5CDE /* PlayerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewController.swift; sourceTree = "<group>"; };
+		0AD33D511D6DBE69000C281A /* PlayersNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersNameViewController.swift; sourceTree = "<group>"; };
+		0AD33D531D6DC542000C281A /* CustomCellPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellPlayer.swift; sourceTree = "<group>"; };
 		0AE92D361D6AC57A00D5F93A /* TeamsNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsNameViewController.swift; sourceTree = "<group>"; };
 		0AE92D3A1D6AD8C400D5F93A /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		0AE92D3C1D6AE35800D5F93A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -104,6 +112,10 @@
 			children = (
 				0AE92D361D6AC57A00D5F93A /* TeamsNameViewController.swift */,
 				0AE92D3A1D6AD8C400D5F93A /* CustomCell.swift */,
+				0A9CD0181D6D87770035E410 /* TeamsInfoViewController.swift */,
+				0AD33D511D6DBE69000C281A /* PlayersNameViewController.swift */,
+				0AD33D531D6DC542000C281A /* CustomCellPlayer.swift */,
+				0AC8F97A1D6ED1EB002B5CDE /* PlayerInfoViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -248,10 +260,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A624C801D6AB19700B16FD5 /* Controller.swift in Sources */,
+				0AD33D541D6DC542000C281A /* CustomCellPlayer.swift in Sources */,
+				0AD33D521D6DBE69000C281A /* PlayersNameViewController.swift in Sources */,
 				0A624C691D6AB08800B16FD5 /* AppDelegate.swift in Sources */,
+				0AC8F97B1D6ED1EB002B5CDE /* PlayerInfoViewController.swift in Sources */,
 				0AE92D3B1D6AD8C400D5F93A /* CustomCell.swift in Sources */,
 				0AE92D371D6AC57A00D5F93A /* TeamsNameViewController.swift in Sources */,
 				0A624C7C1D6AB10300B16FD5 /* Model.swift in Sources */,
+				0A9CD0191D6D87770035E410 /* TeamsInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
