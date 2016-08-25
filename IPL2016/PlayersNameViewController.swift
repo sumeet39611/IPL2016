@@ -14,7 +14,8 @@ class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableV
     //object of Controller
     var controllerObj = Controller()
     
-    var rowIndexPlayer : Int = 0
+    // row index of team selected
+    var rowIndexTeam : Int = 0
     
     //outlet of UITableView
     @IBOutlet weak var tableView: UITableView!
@@ -34,7 +35,7 @@ class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableV
     //Number of rows in table
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 5
+        return 10
     }
     
     //getting each cell information
@@ -50,7 +51,7 @@ class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableV
         cell.playerImage.image = UIImage(named: "dummy")
         
         //getting player names and profile pics
-        controllerObj.getPlayerNameData(self.rowIndexPlayer, indexPath:indexPath.row , callback: { (Result, Result1) -> Void in
+        controllerObj.getPlayerNameData(self.rowIndexTeam, indexPath:indexPath.row , callback: { (Result, Result1) -> Void in
             cell.playerName.text = Result
             cell.playerImage.image = Result1
         })
@@ -70,9 +71,11 @@ class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableV
             // initialize new view controller and cast it as your view controller
             let destination = segue.destinationViewController as! PlayerInfoViewController
             
-            //passing value here
+            //passing value of row index player selected
             destination.index1 = selectedRowIndex.row
-            destination.index2 = self.rowIndexPlayer
+            
+            //passing value of row index team selected
+            destination.index2 = self.rowIndexTeam
         }
     }
     

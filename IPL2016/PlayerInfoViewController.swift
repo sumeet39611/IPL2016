@@ -11,25 +11,28 @@ import Firebase
 
 class PlayerInfoViewController: UIViewController
 {
+    // row index of player selected
     var index1 : Int = 0
+    
+    //row index of team selected
     var index2 : Int = 0
 
-    
+    //outlet of player name UILabel
     @IBOutlet weak var nameLabel: UILabel!
     
-    
+    //outlet of DOB UILabel
     @IBOutlet weak var dobLabel: UILabel!
     
-    
+    //outlet of nationality UILabel
     @IBOutlet weak var nationalityLabel: UILabel!
     
-    
+    //outlet of role UILabel
     @IBOutlet weak var roleLabel: UILabel!
     
-    
+    //outlet of battingStyle UILabel
     @IBOutlet weak var battingStyleLabel: UILabel!
     
-    
+    //outlet of bowlingStyle UILabel
     @IBOutlet weak var bowlingStyleLabel: UILabel!
     
     override func viewDidLoad()
@@ -49,6 +52,7 @@ class PlayerInfoViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
+        //getting reference of firebase database
         let ref = FIRDatabase.database().reference()
         
         //loading data
@@ -57,32 +61,25 @@ class PlayerInfoViewController: UIViewController
             // reading firebase database
             let fullInfo = snapshot.value!["IPL"] as! NSArray
             let teamInfo = fullInfo.objectAtIndex(self.index2) as! NSDictionary
-            
-            //getting team name here
             let Info = teamInfo.objectForKey("team_players") as! NSArray
             let playerInfo = Info.objectAtIndex(self.index1) as! NSDictionary
-            //print(playerInfo)
-           // name = playerInfo.objectForKey("player_name") as? String
-            //print(name)
             
-            
-            
-            //setting team name
+            //setting player name
             self.nameLabel.text = playerInfo.objectForKey("player_name") as? String
             
-            //setting captain name
+            //setting player DOB
             self.dobLabel.text = playerInfo.objectForKey("player_dob") as? String
             
-            //setting coach name
+            //setting player nationality
             self.nationalityLabel.text = playerInfo.objectForKey("player_nationality") as? String
             
-            //setting home venue
+            //setting player role
             self.roleLabel.text = playerInfo.objectForKey("player_role") as? String
             
-            //setting owner name
+            //setting player batting style
             self.battingStyleLabel.text = playerInfo.objectForKey("player_batting_style") as? String
             
-            //setting owner name
+            //setting player bowling style
             self.bowlingStyleLabel.text = playerInfo.objectForKey("player_bowling_style") as? String
             
         })

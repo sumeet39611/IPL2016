@@ -10,9 +10,10 @@ import UIKit
 
 class CustomCellPlayer: UITableViewCell
 {
-    
+    //outlet of player name UILabel
     @IBOutlet weak var playerName: UILabel!
 
+    //outlet of player image UILabel
     @IBOutlet weak var playerImage: UIImageView!
     
     

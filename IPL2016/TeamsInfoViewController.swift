@@ -27,12 +27,14 @@ class TeamsInfoViewController: UIViewController
     //outlet of owner UILabel
     @IBOutlet weak var ownerLabel: UILabel!
     
+    //row index of team selected
     var rowIndex : Int = 0
     
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
         
+        //getting reference of firebase database
         let ref = FIRDatabase.database().reference()
         
         //loading data
@@ -72,7 +74,8 @@ class TeamsInfoViewController: UIViewController
             // initialize new view controller and cast it as your view controller
             let destination = segue.destinationViewController as! PlayersNameViewController
             
-            destination.rowIndexPlayer = selectedRowIndex
+            //passing value of row index team selected
+            destination.rowIndexTeam = selectedRowIndex
         }
     }
 

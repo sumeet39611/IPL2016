@@ -59,18 +59,16 @@ class Controller: NSObject
             // Get user values
             let fullInfo = snapshot.value!["IPL"] as! NSArray
             let teamInfo = fullInfo.objectAtIndex(index) as! NSDictionary
-            
-            //getting team name here
             let Info = teamInfo.objectForKey("team_players") as! NSArray
             let playerInfo = Info.objectAtIndex(indexPath) as! NSDictionary
-            //print(playerInfo)
+            
+            //getting player name
             name = playerInfo.objectForKey("player_name") as? String
-            //print(name)
             
             //url of player logo
             let urlString = playerInfo.objectForKey("player_img_url") as? String
             
-            //getting team logo here
+            //getting player profile pic
             photo = UIImage(data: NSData(contentsOfURL: NSURL(string:urlString!)!)!)
             
             callback(Result: name!, Result1: photo!)
