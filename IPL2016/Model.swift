@@ -8,6 +8,7 @@
 
 import UIKit
 
-class Model: NSObject {
+class Model: NSObject
+{
 
 }

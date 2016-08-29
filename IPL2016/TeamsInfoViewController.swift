@@ -2,7 +2,9 @@
 //  TeamsInfoViewController.swift
 //  IPL2016
 //
-//  Created by BridgeLabz on 24/08/16.
+//  Showing Team Information
+//
+//  Created by Sumeet on 24/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
@@ -11,7 +13,9 @@ import Firebase
 
 class TeamsInfoViewController: UIViewController
 {
-   
+    //row index of team selected
+    var mRowIndex : Int = 0
+    
     //outlet of name  UILabel
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -27,9 +31,6 @@ class TeamsInfoViewController: UIViewController
     //outlet of owner UILabel
     @IBOutlet weak var ownerLabel: UILabel!
     
-    //row index of team selected
-    var rowIndex : Int = 0
-    
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
@@ -42,7 +43,7 @@ class TeamsInfoViewController: UIViewController
         
             // reading firebase database
             let fullInfo = snapshot.value!["IPL"] as! NSArray
-            let teamInfo = fullInfo.objectAtIndex(self.rowIndex) as! NSDictionary
+            let teamInfo = fullInfo.objectAtIndex(self.mRowIndex) as! NSDictionary
             
             //setting team name
             self.nameLabel.text = teamInfo.objectForKey("team_name") as? String
@@ -69,13 +70,11 @@ class TeamsInfoViewController: UIViewController
     {
         if (segue.identifier == "gotoPlayerName")
         {
-            let selectedRowIndex = self.rowIndex
-            
             // initialize new view controller and cast it as your view controller
             let destination = segue.destinationViewController as! PlayersNameViewController
             
             //passing value of row index team selected
-            destination.rowIndexTeam = selectedRowIndex
+            destination.mRowIndexTeam = self.mRowIndex
         }
     }
 

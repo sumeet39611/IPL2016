@@ -7,6 +7,7 @@ target 'IPL2016' do
   pod ‘Firebase’
   pod 'Firebase/Core'
   pod ‘Firebase/Database’
+  pod 'Firebase/Storage'
   # Pods for IPL2016
 
 end

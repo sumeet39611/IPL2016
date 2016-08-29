@@ -2,7 +2,9 @@
 //  CustomCell.swift
 //  IPL2016
 //
-//  Created by BridgeLabz on 22/08/16.
+//  Creating customCell for TeamsNameViewController
+//
+//  Created by Sumeet on 22/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
@@ -10,14 +12,15 @@ import UIKit
 
 class CustomCell: UITableViewCell
 {
-    
     //outlet of UILabel
     @IBOutlet weak var teamName: UILabel!
     
     //outlet of UIImageView
     @IBOutlet weak var teamImage: UIImageView!
     
-
+    //outlet of UIActivityIndicatorView
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()

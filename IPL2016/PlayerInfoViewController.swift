@@ -2,7 +2,9 @@
 //  PlayerInfoViewController.swift
 //  IPL2016
 //
-//  Created by BridgeLabz on 25/08/16.
+//  Showing Player Information
+//
+//  Created by Sumeet on 25/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
@@ -12,10 +14,10 @@ import Firebase
 class PlayerInfoViewController: UIViewController
 {
     // row index of player selected
-    var index1 : Int = 0
+    var mIndexPlayer : Int = 0
     
     //row index of team selected
-    var index2 : Int = 0
+    var mIndexTeam : Int = 0
 
     //outlet of player name UILabel
     @IBOutlet weak var nameLabel: UILabel!
@@ -60,9 +62,9 @@ class PlayerInfoViewController: UIViewController
             
             // reading firebase database
             let fullInfo = snapshot.value!["IPL"] as! NSArray
-            let teamInfo = fullInfo.objectAtIndex(self.index2) as! NSDictionary
+            let teamInfo = fullInfo.objectAtIndex(self.mIndexTeam) as! NSDictionary
             let Info = teamInfo.objectForKey("team_players") as! NSArray
-            let playerInfo = Info.objectAtIndex(self.index1) as! NSDictionary
+            let playerInfo = Info.objectAtIndex(self.mIndexPlayer) as! NSDictionary
             
             //setting player name
             self.nameLabel.text = playerInfo.objectForKey("player_name") as? String

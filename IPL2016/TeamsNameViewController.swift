@@ -2,7 +2,9 @@
 //  TeamsNameViewController.swift
 //  IPL2016
 //
-//  Created by BridgeLabz on 22/08/16.
+//  Showing Team Names and Logos
+//
+//  Created by Sumeet on 22/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
@@ -19,7 +21,6 @@ class TeamsNameViewController: UIViewController,UITableViewDataSource,UITableVie
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -37,27 +38,32 @@ class TeamsNameViewController: UIViewController,UITableViewDataSource,UITableVie
     }
     
     //getting each cell information
-   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-    
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath:indexPath) as! CustomCell
        
+        //activityIndicatorView started animating
+        cell.activityIndicatorView.startAnimating()
+        
         //putting dummy data on label
         cell.teamName.text = "name"
         
         //putting dummy image on imageView
         cell.teamImage.image = UIImage(named: "dummy")
-        
+
         //getting team names and logos
         controllerObj.getTeamNameData(indexPath.row , callback: { (Result, Result1) -> Void in
             cell.teamName.text = Result
             cell.teamImage.image = Result1
+            
+            //activityIndicatorView stopped after loading data
+            cell.activityIndicatorView.stopAnimating()
         })
         
         return cell
     }
     
-    //passing value of selected row to TeamsInfoViewController
+    //passing value of selected team row to TeamsInfoViewController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         //checking with identifier
@@ -70,7 +76,7 @@ class TeamsNameViewController: UIViewController,UITableViewDataSource,UITableVie
             let destination = segue.destinationViewController as! TeamsInfoViewController
            
             //passing value here
-            destination.rowIndex = selectedRowIndex.row
+            destination.mRowIndex = selectedRowIndex.row
         }
     }
     

@@ -2,7 +2,9 @@
 //  PlayersNameViewController.swift
 //  IPL2016
 //
-//  Created by BridgeLabz on 24/08/16.
+//  Showing players name and profile pic
+//
+//  Created by Sumeet on 24/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
@@ -10,12 +12,11 @@ import UIKit
 
 class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 {
-
     //object of Controller
     var controllerObj = Controller()
     
     // row index of team selected
-    var rowIndexTeam : Int = 0
+    var mRowIndexTeam : Int = 0
     
     //outlet of UITableView
     @IBOutlet weak var tableView: UITableView!
@@ -41,8 +42,10 @@ class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableV
     //getting each cell information
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cellPlayer", forIndexPath:indexPath) as! CustomCellPlayer
+        
+        //activityIndicatorView started animating
+        cell.activityIndicatorView.startAnimating()
         
         //putting dummy data on label
         cell.playerName.text = "name"
@@ -51,9 +54,12 @@ class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableV
         cell.playerImage.image = UIImage(named: "dummy")
         
         //getting player names and profile pics
-        controllerObj.getPlayerNameData(self.rowIndexTeam, indexPath:indexPath.row , callback: { (Result, Result1) -> Void in
+        controllerObj.getPlayerNameData(self.mRowIndexTeam, indexPath:indexPath.row , callback: { (Result, Result1) -> Void in
             cell.playerName.text = Result
             cell.playerImage.image = Result1
+            
+            //activityIndicatorView stopped after loading data
+            cell.activityIndicatorView.stopAnimating()
         })
         
         return cell
@@ -72,10 +78,10 @@ class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableV
             let destination = segue.destinationViewController as! PlayerInfoViewController
             
             //passing value of row index player selected
-            destination.index1 = selectedRowIndex.row
+            destination.mIndexPlayer = selectedRowIndex.row
             
             //passing value of row index team selected
-            destination.index2 = self.rowIndexTeam
+            destination.mIndexTeam = self.mRowIndexTeam
         }
     }
     
