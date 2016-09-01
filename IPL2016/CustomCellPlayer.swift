@@ -2,7 +2,7 @@
 //  CustomCellPlayer.swift
 //  IPL2016
 //
-//  creating customCell for PlayersNameViewController
+//  Creating customCell for PlayersNameViewController
 //
 //  Created by Sumeet on 24/08/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.

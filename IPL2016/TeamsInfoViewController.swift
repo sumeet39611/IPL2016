@@ -13,7 +13,7 @@ import Firebase
 
 class TeamsInfoViewController: UIViewController
 {
-    //row index of team selected
+    //initialised row index of team selected
     var mRowIndex : Int = 0
     
     //outlet of name  UILabel
@@ -59,15 +59,15 @@ class TeamsInfoViewController: UIViewController
             
             //setting owner name
             self.ownerLabel.text = teamInfo.objectForKey("team_owner") as? String
-            
-
         })
         
         
     }
     
+    //passing value of row index team selected to PlayersNameViewController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
+        //checking identifier
         if (segue.identifier == "gotoPlayerName")
         {
             // initialize new view controller and cast it as your view controller

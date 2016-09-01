@@ -13,12 +13,31 @@ import Firebase
 
 class Controller: NSObject
 {
+    var mRows = 0
+    
+    //getting no. of rows
+    func getNoOfRows()
+    {
+        let ref = FIRDatabase.database().reference()
+        ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            let fullInfo = snapshot.value!["IPL"] as! NSArray
+            //no. of rows
+            self.mRows = fullInfo.count
+            self.notify()
+        })
+    }
+    
+    //post notification with identifier
+    func notify()
+    {
+        NSNotificationCenter.defaultCenter().postNotificationName("notificationIdentifier", object: nil)
+    }
+    
     //getting team names and logos using callback mechanism
     func getTeamNameData(indexPath : Int, callback: (Result : String, Result1 : UIImage) -> Void)
     {
         //getting reference url of firebase database
         let ref = FIRDatabase.database().reference()
-        //print(ref)
         
         var name : String?
         var photo : UIImage?

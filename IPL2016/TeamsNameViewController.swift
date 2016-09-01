@@ -21,9 +21,19 @@ class TeamsNameViewController: UIViewController,UITableViewDataSource,UITableVie
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        //getting no. of rows
+        controllerObj.getNoOfRows()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("reload:"), name: "notificationIdentifier", object: nil)
+
         // Do any additional setup after loading the view.
     }
 
+    //reloading tableview
+    func reload(notification : NSNotification)
+    {
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning()
     {
@@ -34,7 +44,7 @@ class TeamsNameViewController: UIViewController,UITableViewDataSource,UITableVie
     //Number of rows in table
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 8
+        return controllerObj.mRows
     }
     
     //getting each cell information
@@ -59,7 +69,6 @@ class TeamsNameViewController: UIViewController,UITableViewDataSource,UITableVie
             //activityIndicatorView stopped after loading data
             cell.activityIndicatorView.stopAnimating()
         })
-        
         return cell
     }
     

@@ -24,6 +24,7 @@ class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableV
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -61,17 +62,16 @@ class PlayersNameViewController: UIViewController,UITableViewDataSource,UITableV
             //activityIndicatorView stopped after loading data
             cell.activityIndicatorView.stopAnimating()
         })
-        
         return cell
-
     }
     
+    //passing value of row index of player and team selected to PlayerInfoViewController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         //checking with identifier
         if (segue.identifier == "gotoPlayerInfo")
         {
-            //getting selected row
+            //getting selected row for player
             let selectedRowIndex = self.tableView.indexPathForSelectedRow!
             
             // initialize new view controller and cast it as your view controller
